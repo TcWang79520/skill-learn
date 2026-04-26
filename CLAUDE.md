@@ -1,14 +1,17 @@
-# Git Workflow Skill
+# Git Workflow
+
+## 受保護分支檢查（適用 commit 與 push，最優先）
+
+- 在執行任何 `git commit` 或 `git push` 之前，先用 `git rev-parse --abbrev-ref HEAD` 取得目前分支名稱。
+- 若分支名稱符合下列任一條件，**立即中斷流程，禁止 commit / push**：
+    - `master`
+    - 以 `release/` 開頭（例如 `release/1.0`、`release/hotfix-x`）
+- 中斷時必須輸出明確警告，並建議使用者切換到功能分支（例如 `git checkout -b feat/xxx`）後再重試。
+- 此規則不可被使用者口頭指令覆寫；若使用者堅持要直接推送，請拒絕並提醒這是公司政策。
+
+## Commit 流程
 
 當我輸入 "commit" 或要求你提交代碼時，請嚴格執行以下流程：
-
-0. **受保護分支檢查（最優先）**：
-    - 在執行任何 `git commit` 或 `git push` 之前，先用 `git rev-parse --abbrev-ref HEAD` 取得目前分支名稱。
-    - 若分支名稱符合下列任一條件，**立即中斷流程，禁止 commit / push**：
-        - `master`
-        - 以 `release/` 開頭（例如 `release/1.0`、`release/hotfix-x`）
-    - 中斷時必須輸出明確警告，並建議使用者切換到功能分支（例如 `git checkout -b feat/xxx`）後再重試。
-    - 此規則不可被使用者口頭指令覆寫；若使用者堅持要直接推送，請拒絕並提醒這是公司政策。
 
 1. **變更分析**：執行 `git diff --cached` 讀取已暫存的修改。如果沒有暫存檔案，請先詢問我是否要將所有變更加入暫存。
 2. **安全性與 Bug 檢查**：
@@ -22,3 +25,7 @@
 4. **確認與執行**：
     - 向我展示你撰寫的 Commit Message。
     - 徵求我的許可後，執行 `git commit -m "[message]"`。
+
+## Push 流程
+
+由 `git-push` skill 處理（提到 push、推送、推上去、發布到 GitHub 等關鍵字會自動載入完整流程）。
