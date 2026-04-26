@@ -1,5 +1,16 @@
 # Git Workflow
 
+## 指令路由
+
+| 我說 | 走哪個流程 |
+|------|------------|
+| `commit` / 提交 / 存一下 / 存檔 | 本檔的「Commit 流程」段 |
+| `push` / 推送 / 推上去 / 推到遠端 / 發布到 GitHub / 上傳到 origin | 載入 `.claude/skills/git-push/SKILL.md` 並嚴格依其流程執行 |
+
+觸發詞涵蓋中英文與口語化說法。若我講得很模糊（例如「同步一下」「弄一下」「上去吧」），請先反問確認意圖，再走對應流程。
+
+未來新增 skill 時，請在此表加一列，路由到對應 `.claude/skills/<name>/SKILL.md`。
+
 ## 受保護分支檢查（適用 commit 與 push，最優先）
 
 - 在執行任何 `git commit` 或 `git push` 之前，先用 `git rev-parse --abbrev-ref HEAD` 取得目前分支名稱。
@@ -28,4 +39,13 @@
 
 ## Push 流程
 
-由 `git-push` skill 處理（提到 push、推送、推上去、發布到 GitHub 等關鍵字會自動載入完整流程）。
+由 `git-push` skill 處理。觸發時**必須**讀取 `.claude/skills/git-push/SKILL.md` 並嚴格依其流程執行：
+
+1. 受保護分支檢查
+2. 列出待推送 commit
+3. 確認遠端與 upstream
+4. 取得我的同意
+5. 執行 push
+6. 驗證結果
+
+不可跳過任何步驟，也不可繞過 skill 直接執行 `git push`。
