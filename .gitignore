@@ -1,0 +1,13 @@
+# Claude Code 本機 / 個人設定（per-machine，不該共用到團隊 repo）
+**/settings.local.json
+
+# Plugin 工作目錄殘留：skill-creator 等 plugin 實際裝在系統層
+# (~/.claude/plugins/)，repo 內出現的空殼目錄是 cwd 副作用
+.claude/skills/skill-creator/
+
+# OS / 編輯器
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
