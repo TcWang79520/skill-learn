@@ -7,6 +7,7 @@
 | `commit` / 提交 / 存一下 / 存檔 | 本檔的「Commit 流程」段 |
 | `push` / 推送 / 推上去 / 推到遠端 / 發布到 GitHub / 上傳到 origin | 載入 `.claude/skills/git-push/SKILL.md` 並嚴格依其流程執行 |
 | `review java` / 審查 java / 檢查 java / spring boot review / 看一下這段 java | 載入 `.claude/skills/java-code-review/SKILL.md` 並嚴格依其流程執行 |
+| `建表` / `建立資料表` / `產生 DDL` / `生成 DDL` / `寫個 table` / `create table` / `MariaDB schema` / 來個資料表 | 載入 `.claude/skills/mariadb-ddl-creator/SKILL.md` 並嚴格依其流程執行 |
 
 觸發詞涵蓋中英文與口語化說法。若我講得很模糊（例如「同步一下」「弄一下」「上去吧」），請先反問確認意圖，再走對應流程。
 
